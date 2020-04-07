@@ -1,4 +1,4 @@
-# Happy Hour
+# happyhour
 
 ## Project setup
 ```
@@ -19,10 +19,6 @@ npm run build
 ```
 npm run lint
 ```
-
-
-cordova platform add ios
-cordova emulate ios
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
