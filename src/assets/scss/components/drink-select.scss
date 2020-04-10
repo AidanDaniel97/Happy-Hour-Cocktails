@@ -1,0 +1,20 @@
+.drink-select{
+  .drink-wrapper{
+    height:60vh;
+    position:relative;
+    svg{
+      height:100%;
+    }
+    .liquid{
+      position: absolute;
+      width: 219px;
+      height: 69%;
+      background: red;
+      z-index: -1;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 16%;
+      transition: all 1s ease;
+    }
+  }
+}
