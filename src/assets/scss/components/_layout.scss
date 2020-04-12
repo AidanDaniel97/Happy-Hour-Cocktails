@@ -1,0 +1,61 @@
+html, body, #app{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  background: $spring-wood;
+}
+
+.home {
+  max-width:600px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 92%;
+  margin-top: 3%;
+  height: 92%;
+  border: 1px solid $nile-blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .is-title{
+    margin-top: -20px;
+    background: $spring-wood;
+    margin: -35px auto 30px;
+    font-family: sifonn-basic-outline;
+    font-size: 45px;
+    line-height: 1;
+    padding: 0px 20px;
+    // @{
+    //   margin: -55px auto 30px;
+    //   font-size: 75px;
+    // }
+  }
+
+  .drinks-wrapper{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 1px;
+    padding: 15px;
+
+    .drink-card {
+      width:50%;
+      height: 200px;
+      margin-bottom: 25px;
+
+      .card-content{
+        height: 100%;
+        margin: 0px 5px;
+        display: flex;
+        flex-direction: column;
+        h1{
+          margin:0px;
+        }
+      }
+    }
+  }
+}

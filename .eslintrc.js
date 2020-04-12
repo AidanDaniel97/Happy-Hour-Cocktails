@@ -15,6 +15,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'max-len': 'off',
     'no-var': 'off',
-    'prefer-destructuring': 'off'
+    'prefer-destructuring': 'off',
+    'linebreak-style': 'off'
   },
 };

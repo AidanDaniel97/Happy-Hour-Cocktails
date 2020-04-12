@@ -1,0 +1,34 @@
+[
+   {
+      "name":"Mojito",
+      "description":"A mojito",
+      "steps":[
+         {
+            "ingredient":"Mint",
+            "description":"Add some mint",
+            "measurement":0,
+            "ingredient_type":"leaves"
+         },
+         {
+            "ingredient":"Rum",
+            "description":"Add some rum",
+            "measurement":50,
+            "ingredient_type":"liquid"
+         },
+         {
+            "ingredient":"Soda Water",
+            "description":"Add soda water to taste",
+            "measurement":50,
+            "ingredient_type":"liquid"
+         }
+      ]
+   },
+   {
+      "name":"Pina Colada",
+      "desc":"A random drink test"
+   },
+   {
+      "name":"Screwdriver",
+      "desc":"Another drink test"
+   }
+]

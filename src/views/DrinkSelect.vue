@@ -2,7 +2,7 @@
   <div class="drink-select">
     <p>Drink selected: {{currentDrink.name}}</p>
     <div class="drink-wrapper">
-      <GlassOne/>
+      <HurricaneGlass/>
       <div class="liquid" v-bind:style="{ height: liquidHeight + 'px', maxWidth: liquidMaxWidth + 'px', maxHeight: liquidMaxHeight + 'px' }"></div>
     </div>
     <button v-on:click="incrementStep()" type="button" name="button">Next step</button>
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import GlassOne from '@/assets/glass2.svg';
+import HurricaneGlass from '@/assets/glasses/HurricaneGlass.svg';
 
 export default {
   name: 'DrinkSelect',
   components: {
-    GlassOne,
+    HurricaneGlass,
   },
   props: {
     currentDrink: Object,
@@ -45,14 +45,20 @@ export default {
         this.handleCurrentStep();
       }
     },
+    setLiquidArea() {
+      var wrapperBottom = document.querySelector('.drink-wrapper').getBoundingClientRect().bottom;
+      var liquidBottom = document.getElementById('liquidFillArea').getBoundingClientRect().bottom;
+
+      document.querySelector('.liquid').style.bottom = `${wrapperBottom - liquidBottom}px`;
+      this.liquidMaxHeight = document.getElementById('liquidFillArea').getBoundingClientRect().height;
+      this.liquidMaxWidth = document.getElementById('liquidFillArea').getBoundingClientRect().width + 10;
+    },
     handleCurrentStep() {
       var ingredient = this.currentDrink.steps[this.currentStep].ingredient;
       var measurement = this.currentDrink.steps[this.currentStep].measurement;
       var description = this.currentDrink.steps[this.currentStep].description;
 
       this.liquidHeight += (this.liquidMaxHeight / 100) * measurement;
-      console.log((this.liquidMaxHeight / 100) * measurement);
-
       console.log(ingredient, measurement, description);
     },
   },
@@ -60,8 +66,13 @@ export default {
     if (!this.currentDrink) {
       this.$router.push('/');
     }
-    this.liquidMaxHeight = document.getElementById('liquidFillArea').getBoundingClientRect().height;
-    this.liquidMaxWidth = document.getElementById('liquidFillArea').getBoundingClientRect().width + 10;
+
+    window.addEventListener('resize', () => {
+      this.setLiquidArea();
+      console.log('Resized');
+    });
+
+    this.setLiquidArea();
   },
 };
 </script>

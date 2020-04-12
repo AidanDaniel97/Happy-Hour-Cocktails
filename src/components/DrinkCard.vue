@@ -1,5 +1,6 @@
 <template>
-  <div class="drink-card">
+  <div class="card-content">
+    <div class="img"></div>
     <h1>{{currentDrink.name}}</h1>
   </div>
 </template>
