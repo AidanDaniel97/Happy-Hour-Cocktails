@@ -1,18 +1,28 @@
 .drink-select{
+  text-align: center;
+  .drink-select-title{
+    color: $petite-orchid;
+    font-family:'BebasNeue-Regular', sans-serif;
+    font-size:3rem;
+  }
   .drink-wrapper{
     height:60vh;
     position:relative;
     svg{
       height:100%;
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .liquid{
       position: absolute;
       width: 219px;
       height: 69%;
-      background: red;
-      z-index: -1;
+      background: $nile-blue;
+      z-index: 0;
       left: 50%;
-      transform: translateX(-50%); 
+      transform: translateX(-50%);
       transition: all 1s ease;
     }
   }

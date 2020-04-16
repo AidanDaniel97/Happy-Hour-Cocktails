@@ -21,17 +21,13 @@ html, body, #app{
   transform: translate(-50%, -50%);
 
   .is-title{
-    margin-top: -20px;
     background: $spring-wood;
-    margin: -35px auto 30px;
+    margin: -20px auto 30px;
     font-family: sifonn-basic-outline;
-    font-size: 45px;
+    font-size: 3.2rem;
     line-height: 1;
     padding: 0px 20px;
-    // @{
-    //   margin: -55px auto 30px;
-    //   font-size: 75px;
-    // }
+    color: $nile-blue;
   }
 
   .drinks-wrapper{
@@ -54,6 +50,7 @@ html, body, #app{
         flex-direction: column;
         h1{
           margin:0px;
+          color: $petite-orchid;
         }
       }
     }

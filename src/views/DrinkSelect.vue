@@ -1,6 +1,6 @@
 <template>
   <div class="drink-select">
-    <p>Drink selected: {{currentDrink.name}}</p>
+    <h1 class="drink-select-title">{{currentDrink.name}}</h1>
     <div class="drink-wrapper">
       <HurricaneGlass/>
       <div class="liquid" v-bind:style="{ height: liquidHeight + 'px', maxWidth: liquidMaxWidth + 'px', maxHeight: liquidMaxHeight + 'px' }"></div>
