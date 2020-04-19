@@ -3,7 +3,9 @@
   .drink-select-title{
     color: $petite-orchid;
     font-family:'BebasNeue-Regular', sans-serif;
-    font-size:3rem;
+    font-size:4rem;
+    margin-top: .2em;
+    margin-bottom: .2em;
   }
   .drink-wrapper{
     height:60vh;
@@ -14,12 +16,23 @@
       z-index: 1;
       left: 50%;
       transform: translateX(-50%);
+      #icecube-group{
+        transition: all 2s ease;
+      }
+      #straw, .ice-cube{
+        transform: translateY(-300px);
+        transition: all 1s ease;
+        &.added{
+          transform: translateY(0px);
+        }
+      }
     }
     .liquid{
       position: absolute;
       width: 219px;
       height: 69%;
       background: $nile-blue;
+      opacity: .6;
       z-index: 0;
       left: 50%;
       transform: translateX(-50%);

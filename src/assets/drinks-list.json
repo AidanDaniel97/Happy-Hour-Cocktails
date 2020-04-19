@@ -4,6 +4,12 @@
       "description":"A mojito",
       "steps":[
          {
+            "ingredient":"Ice",
+            "description":"Add some ice",
+            "measurement":0,
+            "ingredient_type":"ice"
+         },
+         {
             "ingredient":"Mint",
             "description":"Add some mint",
             "measurement":0,
