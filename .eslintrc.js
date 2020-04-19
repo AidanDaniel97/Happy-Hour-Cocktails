@@ -16,6 +16,7 @@ module.exports = {
     'max-len': 'off',
     'no-var': 'off',
     'prefer-destructuring': 'off',
-    'linebreak-style': 'off'
+    'linebreak-style': 'off',
+    'no-param-reassign': 'off'
   },
 };

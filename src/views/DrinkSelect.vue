@@ -2,10 +2,15 @@
   <div class="drink-select">
     <h1 class="drink-select-title">{{currentDrink.name}}</h1>
     <div class="drink-wrapper">
-      <HurricaneGlass/>
-      <div class="liquid" v-bind:style="{ height: liquidHeight + 'px', maxHeight: liquidMaxHeight + 'px' }"></div>
+      <HurricaneGlass id="glassSVG"/>
+      <div class="liquid" v-bind:style="{ height: liquidHeight + 'px',  width: liquidWidth + 'px', maxHeight: liquidMaxHeight + 'px' }"></div>
     </div>
-    <button v-on:click="incrementStep()" type="button" name="button">Next step</button>
+    <div class="drink-steps">
+      <div class="step">
+        <h1 class="step-title">Test</h1>
+      </div>
+    </div>
+    <!-- <button v-on:click="incrementStep()" type="button" name="button">Next step</button> -->
   </div>
 </template>
 
@@ -24,9 +29,10 @@ export default {
     return {
       liquidMaxHeight: 0,
       liquidHeight: 0,
+      liquidWidth: 0,
       currentStep: null,
       stepsFinished: false,
-      iceCubesPositioned: false,
+      iceCubesFloating: false,
     };
   },
   methods: {
@@ -51,6 +57,7 @@ export default {
 
       document.querySelector('.liquid').style.bottom = `${wrapperBottom - liquidBottom}px`;
       this.liquidMaxHeight = document.getElementById('liquidFillArea').getBoundingClientRect().height;
+      this.liquidWidth = document.getElementById('glassSVG').getBoundingClientRect().width - 20; // width, minus 20px padding
     },
     handleCurrentStep() {
       var ingredient = this.currentDrink.steps[this.currentStep].ingredient;
@@ -63,14 +70,11 @@ export default {
 
       switch (ingredientType) {
         case 'liquid':
+          // increase height of liquid
           this.liquidHeight += (this.liquidMaxHeight / 100) * measurement;
-          if (iceCubes) {
-            iceCubes.forEach((iceEl) => {
-              iceEl.classList.add('floating');
-            });
-            if (!this.iceCubesPositioned) {
-              this.positionIceCubes();
-            }
+          // Float animation on any ice cubes
+          if (!this.iceCubesFloating && iceCubes) {
+            this.floatIceCubes(iceCubes);
           }
           break;
 
@@ -82,15 +86,16 @@ export default {
           console.log('No ingredient');
       }
     },
-    positionIceCubes() { // used to move ice cubes to the top of the liquid
+    floatIceCubes(iceCubes) { // used to move ice cubes to the top of the liquid
       var iceCubeGroup = document.getElementById('icecube-group');
-      var iceCubePosY = iceCubeGroup.getBoundingClientRect().y;
-      var liquidPosY = document.querySelector('.liquid').getBoundingClientRect().y;
-      var positionDifference = iceCubePosY - (liquidPosY - this.liquidHeight);
 
-      this.iceCubesPositioned = true;
-      console.log(iceCubePosY - (liquidPosY - this.liquidHeight));
-      iceCubeGroup.style.transform = `translateY(-${positionDifference}px)`;
+      iceCubes.forEach((iceEl) => {
+        iceEl.classList.add('floating');
+        iceEl.style.animationDelay = `${Math.random(1, 10) + 1}s`;
+      });
+
+      this.iceCubesFloating = true;
+      iceCubeGroup.style.transform = 'translateY(-15px)';
     },
   },
   mounted() {

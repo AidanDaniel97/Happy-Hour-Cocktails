@@ -7,13 +7,13 @@ html, body, #app{
 }
 
 .home {
-  max-width:600px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 92%;
-  margin-top: 3%;
-  height: 92%;
+  width: 95%;
+  margin-top: 2%;
+  height: 94%;
   border: 1px solid $nile-blue;
   position: absolute;
   top: 50%;
@@ -22,7 +22,7 @@ html, body, #app{
 
   .is-title{
     background: $spring-wood;
-    margin: -20px auto 10px;
+    margin: -30px auto 25px;
     font-family: sifonn-basic-outline;
     font-size: 3.2rem;
     line-height: 1;
@@ -48,6 +48,8 @@ html, body, #app{
         margin: 0px 5px;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid $nile-blue;
         h1{
           margin:0px;
           color: $petite-orchid;
